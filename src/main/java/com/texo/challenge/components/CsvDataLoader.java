@@ -1,4 +1,4 @@
-package com.texo.challenge.componentes;
+package com.texo.challenge.components;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
