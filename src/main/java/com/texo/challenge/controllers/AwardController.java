@@ -48,8 +48,8 @@ public class AwardController {
 	@GetMapping("/result")
 	public ResponseEntity<ResultFinalWinnerDTO> getResultFinalWinner() {
 		
-		List<WinnerDTO> min = winnerService.getResultWinner(ParameterEnum.ASC.toString());
-		List<WinnerDTO> max = winnerService.getResultWinner(ParameterEnum.DESC.toString());
+		List<WinnerDTO> min = winnerService.getResultWinners(ParameterEnum.ASC.toString());
+		List<WinnerDTO> max = winnerService.getResultWinners(ParameterEnum.DESC.toString());
 		
 		ResultFinalWinnerDTO result = new ResultFinalWinnerDTO();
 		result.setMin(min);
