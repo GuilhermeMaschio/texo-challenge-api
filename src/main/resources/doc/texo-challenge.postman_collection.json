@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "5968037b-7a05-4021-9064-be4c5c20257d",
+		"name": "texo-challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "695470",
+		"_collection_link": "https://lively-moon-576969.postman.co/workspace/FISCALTECH---Guilherme-Maschio~2be7198a-c549-476b-8551-eedc5f49eea3/collection/695470-5968037b-7a05-4021-9064-be4c5c20257d?action=share&source=collection_link&creator=695470"
+	},
+	"item": [
+		{
+			"name": "insert award",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"year\" :  2004,\r\n\t\"title\" : \"Can't Stop the Music\", \r\n\t\"studios\" : \"Associated Film Distribution\",\r\n\t\"producers\" : \"Allan Carr\",\r\n\t\"winner\" :  \"yes\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/award",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"award"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list award",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"year\" :  2004,\r\n\t\"title\" : \"Can't Stop the Music\", \r\n\t\"studios\" : \"Associated Film Distribution\",\r\n\t\"producers\" : \"Allan Carr\",\r\n\t\"winner\" :  \"yes\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/award",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"award"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list award Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"year\" :  2004,\r\n\t\"title\" : \"Can't Stop the Music\", \r\n\t\"studios\" : \"Associated Film Distribution\",\r\n\t\"producers\" : \"Allan Carr\",\r\n\t\"winner\" :  \"yes\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/award/result",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"award",
+						"result"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
