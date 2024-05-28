@@ -67,7 +67,7 @@
 			"response": []
 		},
 		{
-			"name": "list award Copy",
+			"name": "result",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
