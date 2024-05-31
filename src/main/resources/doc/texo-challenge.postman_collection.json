@@ -14,7 +14,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"year\" :  2004,\r\n\t\"title\" : \"Can't Stop the Music\", \r\n\t\"studios\" : \"Associated Film Distribution\",\r\n\t\"producers\" : \"Allan Carr\",\r\n\t\"winner\" :  \"yes\"\r\n}",
+					"raw": "{\r\n\t\"year\" :  1983,\r\n\t\"title\" : \"Tiririca\", \r\n\t\"studio\" : \"MGM, United Artists, Cannon Films\",\r\n\t\"producer\" : \"Yoram Globus and Menahem Golan\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -22,14 +22,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8081/award",
+					"raw": "http://localhost:8080/award/save",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "8080",
 					"path": [
-						"award"
+						"award",
+						"save"
 					]
 				}
 			},
@@ -84,14 +85,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/award/result",
+					"raw": "http://localhost:8080/result",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"award",
 						"result"
 					]
 				}

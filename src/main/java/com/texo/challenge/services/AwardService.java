@@ -36,8 +36,8 @@ public class AwardService {
 		
 		try {
 			
-			award.setProducers(saveProducer(getListProducer(movieDTO.producers())));
-			award.setStudios(saveStudio(getListStudio(movieDTO.studios())));
+			award.setProducers(saveProducer(getListProducer(movieDTO.producer())));
+			award.setStudios(saveStudio(getListStudio(movieDTO.studio())));
 			award.setYear(movieDTO.year());
 			award.setTitle(movieDTO.title());
 			award.setWinner(validadeWinner(movieDTO.winner()));

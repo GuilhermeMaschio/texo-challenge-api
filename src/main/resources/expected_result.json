@@ -1,0 +1,18 @@
+{
+    "min": [
+        {
+            "producer": "Joel Silver",
+            "interval": 1990,
+            "previousWin": 1991,
+            "followingWin": 1
+        }
+    ],
+    "max": [
+        {
+            "producer": "Matthew Vaughn",
+            "interval": 2002,
+            "previousWin": 2015,
+            "followingWin": 13
+        }
+    ]
+}
