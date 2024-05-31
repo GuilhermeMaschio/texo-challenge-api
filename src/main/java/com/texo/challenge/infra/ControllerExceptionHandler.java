@@ -13,7 +13,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.texo.challenge.Model.ExceptionModel;
+import com.texo.challenge.models.ExceptionModel;
 import com.texo.challenge.exceptions.BusinessExceptions;
 
 @RestControllerAdvice

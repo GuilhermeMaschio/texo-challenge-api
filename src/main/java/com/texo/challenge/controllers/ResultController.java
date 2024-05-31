@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.texo.challenge.Model.ResultFinalWinnerModel;
+import com.texo.challenge.models.ResultFinalWinnerModel;
 import com.texo.challenge.services.WinnerService;
 
 @RestController

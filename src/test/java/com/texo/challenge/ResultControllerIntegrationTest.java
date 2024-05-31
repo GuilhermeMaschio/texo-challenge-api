@@ -11,8 +11,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.io.ClassPathResource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.texo.challenge.Model.ResultFinalWinnerModel;
-import com.texo.challenge.Model.WinnerModel;
+import com.texo.challenge.models.ResultFinalWinnerModel;
+import com.texo.challenge.models.WinnerModel;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ResultControllerIntegrationTest {

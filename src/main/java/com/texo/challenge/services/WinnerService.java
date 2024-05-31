@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.texo.challenge.Model.ResultFinalWinnerModel;
-import com.texo.challenge.Model.WinnerModel;
+import com.texo.challenge.models.ResultFinalWinnerModel;
+import com.texo.challenge.models.WinnerModel;
 import com.texo.challenge.enuns.ParameterEnum;
 
 import jakarta.persistence.EntityManager;
@@ -18,17 +18,17 @@ import jakarta.persistence.TypedQuery;
 @Service
 @Transactional
 public class WinnerService {
-    
+
     @PersistenceContext
     private EntityManager entityManager;
 
     @Autowired
     AwardRepository awardRepository;
-    
+
     public ResultFinalWinnerModel extractedResult() {
 		List<WinnerModel> min = getResultWinners(ParameterEnum.ASC.toString());
 		List<WinnerModel> max = getResultWinners(ParameterEnum.DESC.toString());
-		
+
 		ResultFinalWinnerModel result = new ResultFinalWinnerModel();
 		result.setMin(min);
 		result.setMax(max);
@@ -36,7 +36,7 @@ public class WinnerService {
 	}
 
     public List<WinnerModel> getResultWinners(String order) {
-        String jpql = "SELECT NEW com.texo.challenge.dtos.WinnerDTO(" +
+        String jpql = "SELECT NEW com.texo.challenge.models.WinnerModel(" +
                       "p.name AS producer, " +
                       "MIN(a.year) AS previousWin, " +
                       "MAX(a.year) AS followingWin, " +

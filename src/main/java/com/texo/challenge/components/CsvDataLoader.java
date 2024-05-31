@@ -11,7 +11,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
-import com.texo.challenge.Model.AwardModel;
+import com.texo.challenge.models.AwardModel;
 import com.texo.challenge.exceptions.BusinessExceptions;
 import com.texo.challenge.services.AwardService;
 

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.texo.challenge.Model.AwardModel;
+import com.texo.challenge.models.AwardModel;
 import com.texo.challenge.entities.Award;
 import com.texo.challenge.exceptions.BusinessExceptions;
 import com.texo.challenge.services.AwardService;
