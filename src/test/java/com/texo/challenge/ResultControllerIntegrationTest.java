@@ -11,8 +11,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.io.ClassPathResource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.texo.challenge.dtos.ResultFinalWinnerDTO;
-import com.texo.challenge.dtos.WinnerDTO;
+import com.texo.challenge.Model.ResultFinalWinnerModel;
+import com.texo.challenge.Model.WinnerModel;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ResultControllerIntegrationTest {
@@ -30,20 +30,20 @@ public class ResultControllerIntegrationTest {
 	public void testGetResultFinalWinner() throws Exception {
 		ClassPathResource resource = new ClassPathResource("expected_result.json");
 
-		ResultFinalWinnerDTO expected = objectMapper.readValue(resource.getFile(), ResultFinalWinnerDTO.class);
-		ResultFinalWinnerDTO actual = restTemplate.getForObject("/result", ResultFinalWinnerDTO.class);
+		ResultFinalWinnerModel expected = objectMapper.readValue(resource.getFile(), ResultFinalWinnerModel.class);
+		ResultFinalWinnerModel actual = restTemplate.getForObject("/producers/awards/min-max", ResultFinalWinnerModel.class);
 
 		compareResultFinalWinner(expected.getMin(), actual.getMin(), MIN);
 		compareResultFinalWinner(expected.getMax(), actual.getMax(), MAX);
 
 	}
 
-	private void compareResultFinalWinner(List<WinnerDTO> expectedList, List<WinnerDTO> actualList, String listName) {
+	private void compareResultFinalWinner(List<WinnerModel> expectedList, List<WinnerModel> actualList, String listName) {
 		assertEquals(expectedList.size(), actualList.size(), "diferent list size " + listName);
 
 		for (int i = 0; i < expectedList.size(); i++) {
-			WinnerDTO expectedItem = expectedList.get(i);
-			WinnerDTO actualItem = actualList.get(i);
+			WinnerModel expectedItem = expectedList.get(i);
+			WinnerModel actualItem = actualList.get(i);
 
 			assertEquals(expectedItem.getProducer(), actualItem.getProducer(),
 					"diferent Producer in " + listName + " at position " + i);

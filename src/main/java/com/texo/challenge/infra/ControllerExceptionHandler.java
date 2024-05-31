@@ -13,15 +13,15 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.texo.challenge.dtos.ExceptionDTO;
+import com.texo.challenge.Model.ExceptionModel;
 import com.texo.challenge.exceptions.BusinessExceptions;
 
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 
 	@ExceptionHandler(BusinessExceptions.class)
-	public ResponseEntity<ExceptionDTO> threatGeneralExceptions(Exception exception) {
-		ExceptionDTO exceptionDTO = new ExceptionDTO(exception.getMessage());
+	public ResponseEntity<ExceptionModel> threatGeneralExceptions(Exception exception) {
+		ExceptionModel exceptionDTO = new ExceptionModel(exception.getMessage());
 		return ResponseEntity.badRequest().body(exceptionDTO);
 	}
 	

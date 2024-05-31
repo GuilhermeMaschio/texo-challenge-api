@@ -1,16 +1,16 @@
-package com.texo.challenge.dtos;
+package com.texo.challenge.Model;
 
-public class WinnerDTO {
+public class WinnerModel {
 
 	private String producer;
 	private int interval;
 	private int previousWin;
 	private int followingWin;
 
-	public WinnerDTO() {
+	public WinnerModel() {
 	}
 
-	public WinnerDTO(String producer, int interval, int previousWin, int followingWin) {
+	public WinnerModel(String producer, int interval, int previousWin, int followingWin) {
 		super();
 		this.producer = producer;
 		this.interval = interval;

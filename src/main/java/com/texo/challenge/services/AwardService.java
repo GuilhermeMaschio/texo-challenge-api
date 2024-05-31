@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.texo.challenge.dtos.AwardDTO;
+import com.texo.challenge.Model.AwardModel;
 import com.texo.challenge.entities.Award;
 import com.texo.challenge.entities.Producer;
 import com.texo.challenge.entities.Studio;
@@ -31,7 +31,7 @@ public class AwardService {
 	private StudioService studioService;
 
 	@Transactional
-	public Award save(AwardDTO movieDTO) throws BusinessExceptions{
+	public Award save(AwardModel movieDTO) throws BusinessExceptions{
 		var award = new Award();
 		
 		try {

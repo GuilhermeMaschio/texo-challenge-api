@@ -2,11 +2,13 @@ package com.texo.challenge.services;
 
 import java.util.List;
 
+import com.texo.challenge.repositories.AwardRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.texo.challenge.dtos.ResultFinalWinnerDTO;
-import com.texo.challenge.dtos.WinnerDTO;
+import com.texo.challenge.Model.ResultFinalWinnerModel;
+import com.texo.challenge.Model.WinnerModel;
 import com.texo.challenge.enuns.ParameterEnum;
 
 import jakarta.persistence.EntityManager;
@@ -19,18 +21,21 @@ public class WinnerService {
     
     @PersistenceContext
     private EntityManager entityManager;
+
+    @Autowired
+    AwardRepository awardRepository;
     
-    public ResultFinalWinnerDTO extractedResult() {
-		List<WinnerDTO> min = getResultWinners(ParameterEnum.ASC.toString());
-		List<WinnerDTO> max = getResultWinners(ParameterEnum.DESC.toString());
+    public ResultFinalWinnerModel extractedResult() {
+		List<WinnerModel> min = getResultWinners(ParameterEnum.ASC.toString());
+		List<WinnerModel> max = getResultWinners(ParameterEnum.DESC.toString());
 		
-		ResultFinalWinnerDTO result = new ResultFinalWinnerDTO();
+		ResultFinalWinnerModel result = new ResultFinalWinnerModel();
 		result.setMin(min);
 		result.setMax(max);
 		return result;
 	}
 
-    public List<WinnerDTO> getResultWinners(String order) {
+    public List<WinnerModel> getResultWinners(String order) {
         String jpql = "SELECT NEW com.texo.challenge.dtos.WinnerDTO(" +
                       "p.name AS producer, " +
                       "MIN(a.year) AS previousWin, " +
@@ -44,7 +49,7 @@ public class WinnerService {
                       "HAVING (MAX(a.year) - MIN(a.year)) > 0 " +
                       "ORDER BY (MAX(a.year) - MIN(a.year)) " + order;
 
-        TypedQuery<WinnerDTO> query = entityManager.createQuery(jpql, WinnerDTO.class);
+        TypedQuery<WinnerModel> query = entityManager.createQuery(jpql, WinnerModel.class);
         query.setMaxResults(1);
         return query.getResultList();
     }
