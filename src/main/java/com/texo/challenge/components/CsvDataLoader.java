@@ -31,7 +31,7 @@ public class CsvDataLoader implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		ClassPathResource csvResource = new ClassPathResource("doc/movielist.csv");
+		ClassPathResource csvResource = new ClassPathResource("/movielist.csv");
 		FileReader fileReader = new FileReader(csvResource.getFile());
 		loadAwardsFromCsv(fileReader);
 	}
