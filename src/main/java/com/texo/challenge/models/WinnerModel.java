@@ -1,4 +1,4 @@
-package com.texo.challenge.Model;
+package com.texo.challenge.models;
 
 public class WinnerModel {
 
