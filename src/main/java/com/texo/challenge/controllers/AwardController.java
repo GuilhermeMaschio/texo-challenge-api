@@ -30,32 +30,17 @@ public class AwardController {
 
 	@Autowired
 	private AwardService awardService;
-	@Autowired
-	private WinnerService winnerService;
-
-	@PostMapping
+	
+	@PostMapping("/save")
 	public ResponseEntity<Award> saveAward(@RequestBody @Valid AwardDTO awardDTO) throws BusinessExceptions {
 		var award = awardService.save(awardDTO);
 		return ResponseEntity.status(HttpStatus.CREATED).body(award);
 	}
 
-	@GetMapping
+	@GetMapping("/getAll")
 	public ResponseEntity<List<Award>> getAllUsers() {
 		List<Award> awards = this.awardService.getAllAwards();
 		return new ResponseEntity<>(awards, HttpStatus.OK);
-	}
-	
-	@GetMapping("/result")
-	public ResponseEntity<ResultFinalWinnerDTO> getResultFinalWinner() {
-		
-		List<WinnerDTO> min = winnerService.getResultWinners(ParameterEnum.ASC.toString());
-		List<WinnerDTO> max = winnerService.getResultWinners(ParameterEnum.DESC.toString());
-		
-		ResultFinalWinnerDTO result = new ResultFinalWinnerDTO();
-		result.setMin(min);
-		result.setMax(max);
-		
-		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
 }

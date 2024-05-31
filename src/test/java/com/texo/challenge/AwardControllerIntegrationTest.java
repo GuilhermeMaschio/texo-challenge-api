@@ -24,7 +24,7 @@ public class AwardControllerIntegrationTest {
 
     @Test
     public void testSaveAward() {
-        String url = "http://localhost:" + port + "/award";
+        String url = "http://localhost:" + port + "/award/save";
         String json = "{\"year\": 2022, \"title\": \"Movie Title\", \"studios\": \"Studio A\","
         		+ " \"producers\": \"Producer A\", \"winner\": \"true\"}";
 
@@ -39,7 +39,7 @@ public class AwardControllerIntegrationTest {
 
     @Test
     public void testGetAllAwards() {
-        String url = "http://localhost:" + port + "/award";
+        String url = "http://localhost:" + port + "/award/getAll";
 
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -47,7 +47,7 @@ public class AwardControllerIntegrationTest {
 
     @Test
     public void testGetResultFinalWinner() {
-        String url = "http://localhost:" + port + "/award/result";
+        String url = "http://localhost:" + port + "/result";
 
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());

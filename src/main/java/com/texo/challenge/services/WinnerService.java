@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.texo.challenge.dtos.ResultFinalWinnerDTO;
 import com.texo.challenge.dtos.WinnerDTO;
+import com.texo.challenge.enuns.ParameterEnum;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -17,6 +19,16 @@ public class WinnerService {
     
     @PersistenceContext
     private EntityManager entityManager;
+    
+    public ResultFinalWinnerDTO extractedResult() {
+		List<WinnerDTO> min = getResultWinners(ParameterEnum.ASC.toString());
+		List<WinnerDTO> max = getResultWinners(ParameterEnum.DESC.toString());
+		
+		ResultFinalWinnerDTO result = new ResultFinalWinnerDTO();
+		result.setMin(min);
+		result.setMax(max);
+		return result;
+	}
 
     public List<WinnerDTO> getResultWinners(String order) {
         String jpql = "SELECT NEW com.texo.challenge.dtos.WinnerDTO(" +
@@ -33,7 +45,7 @@ public class WinnerService {
                       "ORDER BY (MAX(a.year) - MIN(a.year)) " + order;
 
         TypedQuery<WinnerDTO> query = entityManager.createQuery(jpql, WinnerDTO.class);
-        query.setMaxResults(2);
+        query.setMaxResults(1);
         return query.getResultList();
     }
 }
