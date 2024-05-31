@@ -1,9 +1,9 @@
-package com.texo.challenge.dtos;
+package com.texo.challenge.Model;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record AwardDTO(
+public record AwardModel(
 		@NotNull(message = "Invalid year: empty year")  Integer year,
 		@NotBlank(message = "Invalid title: empty title") String title,
 		@NotBlank(message = "Invalid studio: empty studio") String studio,

@@ -11,7 +11,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
-import com.texo.challenge.dtos.AwardDTO;
+import com.texo.challenge.Model.AwardModel;
 import com.texo.challenge.exceptions.BusinessExceptions;
 import com.texo.challenge.services.AwardService;
 
@@ -37,7 +37,7 @@ public class CsvDataLoader implements CommandLineRunner {
 	}
 
 	private void loadAwardsFromCsv(FileReader fileCSV) throws IOException, BusinessExceptions {
-		List<AwardDTO> movieDTOs = new ArrayList<>();
+		List<AwardModel> movieModels = new ArrayList<>();
 
 		try (BufferedReader reader = new BufferedReader(fileCSV)) {
             // skip the first line
@@ -46,7 +46,7 @@ public class CsvDataLoader implements CommandLineRunner {
             // read others lines
             String line;
             while ((line = reader.readLine()) != null) {
-                
+
     			String[] splitLine = line.split(";");
 
     			String year = splitLine[0];
@@ -58,10 +58,10 @@ public class CsvDataLoader implements CommandLineRunner {
     			if(splitLine.length > 4)
     				winner = splitLine[4];
             	
-    			movieDTOs.add(new AwardDTO(Integer.valueOf(year), title, studio, producer, winner));
+    			movieModels.add(new AwardModel(Integer.valueOf(year), title, studio, producer, winner));
             }
             
-            saveAward(movieDTOs);
+            saveAward(movieModels);
             
         } catch (IOException e) {
             log.error("Error to read the file: " + e.getMessage());
@@ -69,8 +69,8 @@ public class CsvDataLoader implements CommandLineRunner {
 		
 	}
 
-	private void saveAward(List<AwardDTO> movieDTOs) throws BusinessExceptions {
-		for (AwardDTO movieDTO : movieDTOs) {
+	private void saveAward(List<AwardModel> movieDTOs) throws BusinessExceptions {
+		for (AwardModel movieDTO : movieDTOs) {
 			awardService.save(movieDTO);
 		}
 		
